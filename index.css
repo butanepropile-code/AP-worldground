@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-cyber-void text-white font-mono;
+    overscroll-behavior: none;
+    touch-action: none;
+  }
+}
+
+@layer components {
+  .hud-btn {
+    @apply relative flex items-center justify-center w-12 h-12 rounded-lg
+           border border-cyber-cyan/20 bg-cyber-void/60 backdrop-blur-md
+           text-cyber-cyan transition-all duration-300 ease-out
+           hover:border-cyber-cyan/60 hover:bg-cyber-cyan/10 hover:shadow-[0_0_20px_rgba(0,255,255,0.3)]
+           active:scale-95;
+  }
+  .hud-btn.active {
+    @apply border-cyber-cyan/80 bg-cyber-cyan/20 shadow-[0_0_30px_rgba(0,255,255,0.4)];
+  }
+  .hud-label {
+    @apply absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-mono uppercase tracking-widest
+           text-cyber-cyan/60 whitespace-nowrap opacity-0 transition-opacity duration-300;
+  }
+  .hud-btn:hover .hud-label {
+    @apply opacity-100;
+  }
+}
